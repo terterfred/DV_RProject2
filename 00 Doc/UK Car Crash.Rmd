@@ -1,0 +1,48 @@
+---
+title: "Car Crash in UK"
+output: html_document
+---
+
+###This is how my RStudio is configured:
+```{r}
+sessionInfo()
+```
+
+###This is the csv eft file used
+```{r}
+source("../02 Data Wrangling/eft.R", echo = TRUE)
+```
+
+###This is the subset and summary of the UK car crash data set used
+
+```{r}
+source("../02 Data Wrangling/sql_to_R.R", echo = FALSE)
+head(df)
+summary(df)
+```
+
+####This is the first plot
+```{r}
+source("../03 Data Visualization/Plot 1.R", echo = TRUE)
+```
+
+Plot 1: Don’t Driving Around at 4:30PM
+In this plot, we use wordcloud to display the times when there were accidents happened at that time frequently. Since we have more than 140000 records in this table, so we select the accidents happened in Q1 (Date between “01/01/2014” and “31/03/2014”) and we only display the time when there is at least 5 accidents happened (min.freq = 5). In the plot, the larger the time is, the more accidents had happened at that time. We see the biggest character is 16:30. Therefore, you might don’t want to drive at 4:30 pm in London, ^___^. (We simply want to practice wordclod in this plot, try something new!)
+
+
+####This is the second plot
+```{r}
+source("../03 Data Visualization/Plot 2.R", echo = TRUE)
+```
+
+Plot 2: Accidents number ~ Weather Conditions, Road Surface Conditions and Speed limit
+In this plot, we try to look at the influences of different conditions, including weather, road surface and speed limit. From the graph, we see that most accidents were happened under weather condition 1, 2 and road surface condition -1, 0, and 1. However, most accidents happened at a speed limit of 30 which is contradicted to common sense. It might because that most roads has a speed limit of 30.
+
+
+####This is the third plot
+```{r}
+source("../03 Data Visualization/Plot 3.R", echo = TRUE)
+```
+
+Plot 3: Geographical Distribution of Accidents
+As we mentioned before, there are too many records in the table so we select 1% of the accidents based on Accident Index. This plot is pretty straight forward, the more concentrated the dot is, the more accidents happened in that area. 
